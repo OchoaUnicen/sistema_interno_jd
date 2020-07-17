@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<title>Sistema Interno</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-bar-item w3-right">Parana Tiger</span>
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4">
+      <img src="img/fotojd_2.jpg" class="w3-circle w3-margin-right" style="width:46px">
+    </div>
+    <div class="w3-col s8 w3-bar">
+      <span>Bienvenido, <strong>Juan Diego</strong></span><br>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5>Dashboard</h5>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Dashboard</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Historial de actividad</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Entradas</a>
+    <!-- <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a> -->
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  Historial de actividad</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Configuracion</a><br><br>
+  </div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+  </header>
+
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-quarter">
+      <div id="recuadro_consultas" class="w3-container w3-red w3-padding-16">
+        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>2</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Consultas</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div id="recuadro_circuito" class="w3-container w3-blue w3-padding-16">
+        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>3</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Circuito</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div id="recuadro_fotos" class="w3-container w3-teal w3-padding-16">
+        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>-</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Fotos</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div id="recuadro_parana_tiger" class="w3-container w3-orange w3-text-white w3-padding-16">
+        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>-</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Parana Tiger</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-panel">
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <!-- <div class="w3-third">
+        <h5>Regions</h5>
+        <img src="/w3images/region.jpg" style="width:100%" alt="Google Regional Map">
+      </div> -->
+      <div class="w3-twothird">
+        <h5>Historial de actividad</h5>
+        <table class="w3-table w3-striped w3-white">
+         
+          <tr>
+            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
+            <td>Actualizaste foto de portada</td>
+            <td><i>10 mins</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+            <td>Reportaste un problema</td>
+            <td><i>15 mins</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+            <td>Publicaste una presentacion</td>
+            <td><i>17 mins</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-comment w3-text-blue w3-large"></i></td>
+            <td>Hiciste una consulta</td>
+            <td><i>25 mins</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+            <td>Publicaste una presentacion</td>
+            <td><i>35 mins</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+            <td>Compartiste presentacion</td>
+            <td><i>39 mins</i></td>
+          </tr>
+          <tr> 
+            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
+            <td>Creacion de App finalizada</td>
+            <td><i>46 mins</i></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5>Entradas mas vendidas</h5>
+    <p>Bar Marabout</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-center w3-padding w3-green" style="width:75%">75 / 100</div>
+    </div>
+
+    <p>Der Tanz</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-center w3-padding w3-orange" style="width:50%">60 / 120</div>
+    </div>
+
+    <p>Bar Benavidez</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-center w3-padding w3-red" style="width:33%">50 / 150</div>
+    </div>
+  </div>
+  <hr>
+
+  <div class="w3-container">
+    <h5>Visualizaciones de presentaciones</h5>
+    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+      <tr>
+        <td>Marabout bar</td>
+        <td>442 Personas</td>
+      </tr>
+      <tr>
+        <td>Der Tanz</td>
+        <td>249 Personas</td>
+      </tr>
+      <tr>
+        <td>Benavidez After Office Bar</td>
+        <td>114 Personas</td>
+      </tr>
+      <!-- <tr>
+        <td>Spain</td>
+        <td>2.1%</td>
+      </tr>
+      <tr>
+        <td>India</td>
+        <td>1.9%</td>
+      </tr>
+      <tr>
+        <td>France</td>
+        <td>1.5%</td> -->
+      </tr>
+    </table><br>
+    <button class="w3-button w3-dark-grey">Informe Completo  <i class="fa fa-arrow-right"></i></button>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5>Tu plan actual: <strong>Sistema autoadministrable para artistas</strong></h5>
+    <ul class="w3-ul w3-card-4 w3-white">
+      <li class="w3-padding-16">
+        <!-- <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
+        <i class="fa fa-globe w3-text-green w3-jumbo"></i>
+        <span class="w3-xlarge">Sistema de consultas</span><br>
+      </li>
+      <li class="w3-padding-16">
+        <!-- <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
+        <i class="fa fa-image w3-text-pink w3-jumbo"></i>
+        <span class="w3-xlarge">Galeria de fotos</span><br>
+      </li>
+      <li class="w3-padding-16">
+        <!-- <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
+        <i class="fa fa-users w3-text-blue w3-jumbo"></i>
+        <span class="w3-xlarge">Publicacion de eventos</span><br>
+      </li>
+      <li class="w3-padding-16">
+        <!-- <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
+        <i class="fa fa-money w3-text-light-green w3-jumbo"></i>
+        <span class="w3-xlarge">Sistema de venta de entradas</span><br>
+      </li>
+    </ul><br>
+    <button class="w3-button w3-dark-grey">Ver Planes  <i class="fa fa-arrow-right"></i></button>
+  </div>
+  <hr>
+<!-- 
+  <div class="w3-container">
+    <h5>Novedades</h5>
+    <div class="w3-row">
+      <div class="w3-col m2 text-center">
+        <img class="w3-circle" src="/w3images/avatar3.png" style="width:96px;height:96px">
+      </div>
+      <div class="w3-col m10 w3-container">
+        <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
+        <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <div class="w3-col m2 text-center">
+        <img class="w3-circle" src="/w3images/avatar1.png" style="width:96px;height:96px">
+      </div>
+      <div class="w3-col m10 w3-container">
+        <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+      </div>
+    </div>
+  </div> -->
+  <br>
+  <div class="w3-container w3-dark-grey w3-padding-32">
+    <div class="w3-row">
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-green">Imagenes</h5>
+        <p>¿Qué imágenes puedo subir?</p>
+        <p>¿Puedo subir videos?</p>
+        <p>¿Puedo editar o modificar fotos subidas?</p>
+      </div>
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-red">Sistema</h5>
+        <p>¿Puedo cambiar los colores del panel de control?</p>
+        <p>¿Puedo ordenar de una forma dinstina mi aplicación?</p>
+        <p>¿Alguien mas puede usar mi aplicación?</p>
+      </div>
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-orange">Plan</h5>
+        <p>¿Como puedo renovar mi plan?</p>
+        <p>¿Puedo cambiar mi plan durante un periodo vigente de contrato?</p>
+        <p>¿Cuáles son los métodos de pago disponibles?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <!-- <footer class="w3-container w3-padding-16 w3-light-grey">
+    <h4>FOOTER</h4>
+    <p><a href="https://www.w3schools.com/w3css/default.asp" target="_blank"></a></p>
+  </footer> -->
+
+  <!-- End page content -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
